@@ -7,6 +7,7 @@ import { useReleaseCalendar } from './composables/useReleaseCalendar'
 import { useMetacriticDistribution } from './composables/useMetacriticDistribution'
 import { DEFAULT_START_YEAR, DEFAULT_END_YEAR } from './api/constants'
 import DashboardHeader from './components/layout/DashboardHeader.vue'
+import DashboardGrid from './components/layout/DashboardGrid.vue'
 import PlatformShareChart from './components/charts/PlatformShareChart.vue'
 import GenreTrendChart from './components/charts/GenreTrendChart.vue'
 import ReleaseCalendarChart from './components/charts/ReleaseCalendarChart.vue'
@@ -54,7 +55,7 @@ onMounted(() => {
       @update:start-year="handleStartYearUpdate"
       @update:end-year="handleEndYearUpdate"
     />
-    <main class="dashboard-grid">
+    <DashboardGrid>
       <div class="chart-card">
         <h2>プラットフォーム勢力図</h2>
         <PlatformShareChart
@@ -87,6 +88,6 @@ onMounted(() => {
           :entries="boxPlotEntries"
         />
       </div>
-    </main>
+    </DashboardGrid>
   </div>
 </template>
